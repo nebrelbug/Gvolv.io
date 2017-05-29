@@ -1,1 +1,30 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>FluidMove</title>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDj097NtzmxKe7lK6zRVyyvPU7-rQGkqCQ",
+    authDomain: "ben-gublers-website.firebaseapp.com",
+    databaseURL: "https://ben-gublers-website.firebaseio.com",
+    projectId: "ben-gublers-website",
+    storageBucket: "ben-gublers-website.appspot.com",
+    messagingSenderId: "1011911140403"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://nebrelbug.github.io/processing.min.js"></script>
+<script src="https://nebrelbug.github.io/fluidmove/fluidmove.js"></script>
+</head>
+<body>
+  <p id="signIn">Sign In</p>
+  <p id="signOut">Sign Out</p>
+<canvas id="canvas"></canvas>
+  <p>5.5</p>
+</body>
+</html>
