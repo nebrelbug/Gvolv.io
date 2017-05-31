@@ -67,7 +67,7 @@ function polygon(sides, centerX, centerY, radius, fillColor, strokeColor) {
 //END POLYGON
 		
 processing.setup = function() {
-	processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+50));
+	processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
 	processing.background(0,0,0);
 	 
 };
@@ -160,4 +160,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.9
+//V 1.0
