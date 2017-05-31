@@ -114,6 +114,7 @@ changeRef.on('value', function(snapshot) {
     processing.fill(255,0,0);
     processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2-radius/2), (childSnapshot.val().ypos-ypos)+(processing.height/2-radius/2));
     processing.fill(255);
+    processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
 });
 	
