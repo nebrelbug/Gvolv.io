@@ -89,8 +89,12 @@ processing.setup = function() {
 
 function movement () {
     keyAction();
+    if(xpos > -4000 && xpos < 4000) {
     xpos = xpos + xv; //setting the positions to the positions + movement
+    }
+    if(ypos >-4000 && ypos <4000) {
     ypos = ypos + yv;
+    }
     xv = xv * 0.9; //slowing it down
     yv = yv * 0.9;
     firebase.database().ref('users/' + uid).set({
@@ -108,7 +112,9 @@ processing.draw = function() {
 };
 		
 changeRef.on('value', function(snapshot) {
-   processing.background(0,0,0);
+   processing.background(175,175,175);
+   processing.fill(0,0,0);
+   processing.rect(-4000,-4000,8000,8000);
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2-radius/2), (childSnapshot.val().ypos-ypos)+(processing.height/2-radius/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
