@@ -127,6 +127,9 @@ $(document).keyup(function (e) {
     keys[e.which]= false;
     keyAction();
 });
+$( window ).resize(function() {
+  processing.size($(window).width(), $(window).height());
+});
 };		
 
 var canvas = document.getElementById("canvas");
