@@ -89,12 +89,12 @@ processing.setup = function() {
 
 function movement () {
     keyAction();
-    if(xpos > -4000 && xpos < 4000) {
     xpos = xpos + xv; //setting the positions to the positions + movement
-    }
-    if(ypos >-4000 && ypos <4000) {
     ypos = ypos + yv;
-    }
+    if (xpos > -4000) {xpos = 2*350 - xpos; xv = -xv;}
+    if (xpos <  4000) {xpos = 2* 50 - xpos; xv = -xv;}
+    if (ypos > -4000) {ypos = 2*350 - ypos; yv = -yv;}
+    if (ypos <  4000) {ypos = 2* 50 - ypos; yv = -yv;}
     xv = xv * 0.9; //slowing it down
     yv = yv * 0.9;
     firebase.database().ref('users/' + uid).set({
@@ -160,4 +160,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.0
+//V 1.1
