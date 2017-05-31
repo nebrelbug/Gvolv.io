@@ -68,7 +68,7 @@ function polygon(sides, centerX, centerY, radius, fillColor, strokeColor) {
 		
 processing.setup = function() {
 	processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
-	processing.background(0,0,0);
+	processing.background(175,175,175);
 	 
 };
 
@@ -160,4 +160,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.3
+//V 1.4
