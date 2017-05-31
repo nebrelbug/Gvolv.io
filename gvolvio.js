@@ -91,10 +91,10 @@ function movement () {
     keyAction();
     xpos = xpos + xv; //setting the positions to the positions + movement
     ypos = ypos + yv;
-    if (xpos > -4000) {xpos = 2*350 - xpos; xv = -xv;}
-    if (xpos <  4000) {xpos = 2* 50 - xpos; xv = -xv;}
-    if (ypos > -4000) {ypos = 2*350 - ypos; yv = -yv;}
-    if (ypos <  4000) {ypos = 2* 50 - ypos; yv = -yv;}
+    if (xpos < -4000) {xpos = 2*350 - xpos; xv = -xv;}
+    if (xpos >  4000) {xpos = 2* 50 - xpos; xv = -xv;}
+    if (ypos < -4000) {ypos = 2*350 - ypos; yv = -yv;}
+    if (ypos >  4000) {ypos = 2* 50 - ypos; yv = -yv;}
     xv = xv * 0.9; //slowing it down
     yv = yv * 0.9;
     firebase.database().ref('users/' + uid).set({
@@ -160,4 +160,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.1
+//V 1.2
