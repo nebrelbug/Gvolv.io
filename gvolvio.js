@@ -116,7 +116,11 @@ changeRef.on('value', function(snapshot) {
     processing.fill(255);
   });
 });
-		
+	
+$( window ).resize(function() {
+  processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
+});		
+
 $(document).keydown(function (e) {
     keys[e.which] = true;
 	keyAction();
@@ -149,4 +153,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.1
+//V 0.3
