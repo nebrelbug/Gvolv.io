@@ -113,6 +113,8 @@ processing.draw = function() {
 		
 changeRef.on('value', function(snapshot) {
    processing.background(175,175,175);
+   processing.fill(175,175,175);
+   processing.rect(-4020, -4020, 8040, 8040);
    processing.fill(0,0,0);
    processing.rect(-4000,-4000,8000,8000);
   snapshot.forEach(function(childSnapshot) {
@@ -160,4 +162,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.4
+//V 1.5
