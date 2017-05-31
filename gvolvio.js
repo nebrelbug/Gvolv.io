@@ -110,7 +110,7 @@ processing.draw = function() {
 changeRef.on('value', function(snapshot) {
    processing.background(0,0,0);
   snapshot.forEach(function(childSnapshot) {
-    polygon(childSnapshot.val().sides, childSnapshot.val().xpos, childSnapshot.val().ypos, childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
+    polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+200, (childSnapshot.val().ypos-ypos)+200, childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
     processing.text(childSnapshot.val().name, childSnapshot.val().xpos, childSnapshot.val().ypos);
     processing.fill(255);
