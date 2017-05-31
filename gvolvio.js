@@ -112,7 +112,7 @@ changeRef.on('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+200, (childSnapshot.val().ypos-ypos)+200, childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
-    processing.text(childSnapshot.val().name, childSnapshot.val().xpos, childSnapshot.val().ypos);
+    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+200, (childSnapshot.val().ypos-ypos)+200);
     processing.fill(255);
   });
 });
@@ -153,4 +153,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.3
+//V 0.5
