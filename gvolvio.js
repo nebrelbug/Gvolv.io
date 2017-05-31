@@ -67,7 +67,7 @@ function polygon(sides, centerX, centerY, radius, fillColor, strokeColor) {
 //END POLYGON
 		
 processing.setup = function() {
-	processing.size($(document).width(),$(document).height()-($("#signIn").height()+$("#signOut").height()));
+	processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+50));
 	processing.background(0,0,0);
 	 
 };
@@ -112,7 +112,7 @@ changeRef.on('value', function(snapshot) {
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+200, (childSnapshot.val().ypos-ypos)+200, childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
-    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+200, (childSnapshot.val().ypos-ypos)+200);
+    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2-radius/2), (childSnapshot.val().ypos-ypos)+(processing.width/2-radius/2));
     processing.fill(255);
   });
 });
@@ -153,4 +153,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.5
+//V 0.7
