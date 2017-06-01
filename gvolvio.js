@@ -113,14 +113,12 @@ processing.draw = function() {
 		
 changeRef.on('value', function(snapshot) {
    processing.background(175,175,175);
-   processing.fill(175,175,175);
-   processing.rect(-4020, -4020, 8040, 8040);
    processing.fill(0,0,0);
-   processing.rect(-4000,-4000,8000,8000);
+   processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
   snapshot.forEach(function(childSnapshot) {
-    polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2-radius/2), (childSnapshot.val().ypos-ypos)+(processing.height/2-radius/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
+    polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
-    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2-radius/2), (childSnapshot.val().ypos-ypos)+(processing.height/2-radius/2));
+    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
     processing.fill(255);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
@@ -162,4 +160,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.5
+//V 1.6
