@@ -67,8 +67,8 @@ function polygon(sides, centerX, centerY, radius, fillColor, strokeColor) {
 //END POLYGON
 		
 processing.setup = function() {
-	processing.size($(document).width(),$(document).height()-($("#signIn").height()+$("#signOut").height()));
-	processing.background(0,0,0);
+	processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
+	processing.background(175,175,175);
 	 
 };
 
@@ -91,6 +91,10 @@ function movement () {
     keyAction();
     xpos = xpos + xv; //setting the positions to the positions + movement
     ypos = ypos + yv;
+    if (xpos < -4000) {xpos = 2*-4000 - xpos; xv = -xv;}
+    if (xpos >  4000) {xpos = 2* 4000 - xpos; xv = -xv;}
+    if (ypos < -4000) {ypos = 2*-4000 - ypos; yv = -yv;}
+    if (ypos >  4000) {ypos = 2* 4000 - ypos; yv = -yv;}
     xv = xv * 0.9; //slowing it down
     yv = yv * 0.9;
     firebase.database().ref('users/' + uid).set({
@@ -108,15 +112,22 @@ processing.draw = function() {
 };
 		
 changeRef.on('value', function(snapshot) {
-   processing.background(0,0,0);
+   processing.background(175,175,175);
+   processing.fill(0,0,0);
+   processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
   snapshot.forEach(function(childSnapshot) {
-    polygon(childSnapshot.val().sides, childSnapshot.val().xpos, childSnapshot.val().ypos, childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
+    polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
-    processing.text(childSnapshot.val().name, childSnapshot.val().xpos, childSnapshot.val().ypos);
+    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
     processing.fill(255);
+    processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
 });
-		
+	
+$( window ).resize(function() {
+  processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
+});		
+
 $(document).keydown(function (e) {
     keys[e.which] = true;
 	keyAction();
@@ -149,4 +160,3 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.1
