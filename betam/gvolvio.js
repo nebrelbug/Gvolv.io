@@ -119,13 +119,15 @@ processing.draw = function() {
 		
 changeRef.on('value', function(snapshot) {
    processing.background(175,175,175);
-   processing.fill(0,0,0);
+   processing.fill(255,200,200);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
+    processing.ellipse(60,20,16,16);
     processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
     processing.fill(255);
+    processing.ellipse(60,20,16,16);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
 });
