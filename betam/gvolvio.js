@@ -68,7 +68,7 @@ function polygon(sides, centerX, centerY, radius, fillColor, strokeColor) {
 		
 processing.setup = function() {
 	processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
-	processing.background(175,175,175);
+	processing.background(200,200,200);
 	 
 };
 
@@ -85,16 +85,22 @@ processing.setup = function() {
     if (keys[39]) {
         xv = xv + 1;
     }
+    if (keys [66]) {
+	yv = yv + 20
+	xv = xv + 20
+	yv = yv - 20
+	xv = xv - 20
+    }
 }
 
 function movement () {
     keyAction();
     xpos = xpos + xv; //setting the positions to the positions + movement
     ypos = ypos + yv;
-    if (xpos < -4000) {xpos = 2*-4000 - xpos; xv = -xv;}
-    if (xpos >  4000) {xpos = 2* 4000 - xpos; xv = -xv;}
-    if (ypos < -4000) {ypos = 2*-4000 - ypos; yv = -yv;}
-    if (ypos >  4000) {ypos = 2* 4000 - ypos; yv = -yv;}
+    if (xpos < -40000) {xpos = 2*-40000 - xpos; xv = -xv;}
+    if (xpos >  40000) {xpos = 2* 40000 - xpos; xv = -xv;}
+    if (ypos < -40000) {ypos = 2*-40000 - ypos; yv = -yv;}
+    if (ypos >  40000) {ypos = 2* 40000 - ypos; yv = -yv;}
     xv = xv * 0.9; //slowing it down
     yv = yv * 0.9;
     firebase.database().ref('users/' + uid).set({
