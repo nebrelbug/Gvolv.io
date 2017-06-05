@@ -115,6 +115,10 @@ changeRef.on('value', function(snapshot) {
    processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
+   for (i = -4000; i < 4001; i+=20) {
+        processing.stroke(175);
+	processing.line((i-xpos)+(processing.width/2), (i-ypos)+(processing.height/2);
+    }
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
     processing.fill(255,0,0);
@@ -160,4 +164,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.6
+//V 0.5
