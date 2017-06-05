@@ -85,8 +85,8 @@ processing.setup = function() {
     if (keys[39]) {
         xv = xv + 1;
     }
-    if (keys [66]) {
-	yv = yv + 20
+    if (keys [77]) {
+	yv = yv + 2
 	
     }
 }
