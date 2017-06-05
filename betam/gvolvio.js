@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 var uid;
-var name;
+var name = name;
 var xv = 0;
 var yv = 0;
 var xpos = 200;
@@ -13,6 +13,8 @@ var radius = 20;
 var fillColor = 255;
 var strokeColor;
 
+//Nickname Creation
+	<input type="text" id="nickname" name="nickname">
 	
     	function sketchProc(processing) {
 		
