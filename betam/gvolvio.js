@@ -87,8 +87,6 @@ processing.setup = function() {
     }
     if (keys [77]) {
 	yv = yv + 1;
-	xv = xv + 1;
-	
     }
 }
 
@@ -100,8 +98,8 @@ function movement () {
     if (xpos >  40000) {xpos = 2* 40000 - xpos; xv = -xv;}
     if (ypos < -40000) {ypos = 2*-40000 - ypos; yv = -yv;}
     if (ypos >  40000) {ypos = 2* 40000 - ypos; yv = -yv;}
-    xv = xv * 0.9; //slowing it down
-    yv = yv * 0.9;
+    xv = xv * 0.8; //slowing it down
+    yv = yv * 0.8;
     firebase.database().ref('users/' + uid).set({
     xpos: Math.round(xpos),
     ypos: Math.round(ypos),
@@ -167,3 +165,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
+//1.0 Pink!
