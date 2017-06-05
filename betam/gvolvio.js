@@ -1,13 +1,11 @@
 $(document).ready(function() {
 
-var provider = new firebase.auth.GoogleAuthProvider();
 var uid;
 var name;
 var xv = 0;
 var yv = 0;
 var xpos = 200;
 var ypos = 200;
-var changeRef = firebase.database().ref('users/');
 var keys = [];
 var userRef;
 var sides = 5;
@@ -122,3 +120,4 @@ var processingInstance = new Processing(canvas, sketchProc);
   }
 });
 	
+//2.0
