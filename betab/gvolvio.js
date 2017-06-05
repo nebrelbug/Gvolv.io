@@ -115,11 +115,11 @@ changeRef.on('value', function(snapshot) {
    processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
-   for (i = -4000; i < 4001; i+=100) {
+   for (i = 0; i < 8001; i+=100) {
         processing.stroke(175);
 	processing.line((-4000-xpos)+(processing.width/2),-4000+i,(4000-xpos)+(processing.width/2),-4000+i);
     }
-    for (i = -4000; i < 4001; i+=100) {
+    for (i = 0; i < 8001; i+=100) {
         processing.stroke(175);
 	processing.line(-4000+i+(processing.width/2),(-4000-ypos),-4000+i+(processing.width/2),(4000-ypos));
     }
@@ -168,4 +168,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.8
+//V 0.9
