@@ -86,7 +86,8 @@ processing.setup = function() {
         xv = xv + 1;
     }
     if (keys [77]) {
-	yv = yv + 2
+	yv = yv + 1;
+	xv = xv + 1;
 	
     }
 }
