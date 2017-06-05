@@ -117,11 +117,11 @@ changeRef.on('value', function(snapshot) {
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
    for (i = -4000; i < 4001; i+=100) {
         processing.stroke(175);
-	processing.line((-4000-xpos)+(processing.width/2),-4000+i,(-4000-xpos)+(processing.width/2),-4000+i);
+	processing.line((-4000-xpos)+(processing.width/2),-4000+i,(4000-xpos)+(processing.width/2),-4000+i);
     }
     for (i = -4000; i < 4001; i+=100) {
         processing.stroke(175);
-	processing.line(-4000+i,(-4000-ypos)+(processing.width/2),-4000+i,(-4000-ypos)+(processing.width/2));
+	processing.line(-4000+i+(processing.width/2),(-4000-ypos),-4000+i+(processing.width/2),(4000-ypos));
     }
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
@@ -168,4 +168,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 0.7
+//V 0.8
