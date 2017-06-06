@@ -117,12 +117,12 @@ changeRef.on('value', function(snapshot) {
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
 	//Horizontal gridlines
    for (i = 0; i < 8001; i+=100) {
-        processing.stroke(175);
+        processing.stroke(255);
 	processing.line((-4000-xpos)+(processing.width/2),-4000+i-ypos,(-4000-xpos)+(processing.width/2), -4000+i-ypos);
     }
 	//Vertical Gridlines
     for (i = 0; i < 8001; i+=100) {
-        processing.stroke(175);
+        processing.stroke(255);
 	processing.line(-4000+i-xpos,(-4000-ypos)+(processing.height/2), -4000+i-xpos,(-4000-ypos)+(processing.height/2),);
     }
   snapshot.forEach(function(childSnapshot) {
@@ -170,4 +170,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.0
+//V 1.1
