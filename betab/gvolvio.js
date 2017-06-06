@@ -123,7 +123,7 @@ changeRef.on('value', function(snapshot) {
 	//Vertical Gridlines
     for (i = 0; i < 8001; i+=100) {
         processing.stroke(255);
-	processing.line(-4000+i-xpos,(-4000-ypos)+(processing.height/2), -4000+i-xpos,(-4000-ypos)+(processing.height/2),);
+	processing.line(-4000+i-xpos,(-4000-ypos)+(processing.height/2), -4000+i-xpos,(-4000-ypos)+(processing.height/2));
     }
   snapshot.forEach(function(childSnapshot) {
     polygon(childSnapshot.val().sides, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().fillColor, 0)
@@ -170,4 +170,4 @@ $( "#signOut" ).click(function () {
 	
 
 });
-//V 1.1
+//V 1.2
