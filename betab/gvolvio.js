@@ -116,7 +116,7 @@ changeRef.on('value', function(snapshot) {
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
 	//Horizontal gridlines
-   for (i = 0; i < 8001; i+=100) {
+   for (i = 0; i < 8001; i-=100) {
         processing.stroke(255);
 	processing.line((-4000-xpos)+(processing.width/2),-4000+i-ypos,(-4000-xpos)+(processing.width/2), -4000+i-ypos);
     }
