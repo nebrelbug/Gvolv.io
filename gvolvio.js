@@ -119,7 +119,7 @@ changeRef.on('value', function(snapshot) {
     processing.stroke(255);
     processing.strokeWeight(3);
     processing.fill(220, 226, 237);
-    processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius)	  
+    processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
     processing.fill(255,0,0);
     processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
     processing.fill(255);
