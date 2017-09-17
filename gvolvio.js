@@ -124,9 +124,9 @@ processing.draw = function() {
     processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
     processing.fill(0);
     var charName = childSnapshot.val().name;
-    if (charName !== undefined) {
+    //if (charName !== undefined) {
     processing.text(charName.charAt(0), (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
-    }
+    //}
     processing.fill(255);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
@@ -146,9 +146,9 @@ $( window ).resize(function() {
     processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
     processing.fill(0);
     var charName = childSnapshot.val().name;
-    if (charName !== undefined) {
+    //if (charName !== undefined) {
     processing.text(charName.charAt(0), (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
-    }
+    //}
     processing.fill(255);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
