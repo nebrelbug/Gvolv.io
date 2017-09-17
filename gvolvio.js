@@ -109,7 +109,7 @@ function movement () {
 
 processing.draw = function() {
 	movement();
-	changeRef.forEach(function(snapshot) {//Experimental
+	changeRef.once('value', (function(snapshot) {//Experimental
 	processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
