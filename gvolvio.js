@@ -109,25 +109,9 @@ function movement () {
 
 processing.draw = function() {
 	movement();
-	changeRef.once('value', (function(snapshot) {//Experimental
-	processing.background(175,175,175);
-   processing.fill(0,0,0);
-   processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
-  snapshot.forEach(function(childSnapshot) {
-    processing.stroke(255);
-    processing.strokeWeight(3);
-    processing.fill(220, 226, 237);
-    processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
-    processing.fill(0);
-    var charName = childSnapshot.val().name;
-    processing.text(charName.charAt(0), (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
-    processing.fill(255);
-    processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
-  });
-});
-};
-	/*	
-changeRef.on('value', function(snapshot) {
+	
+	
+	changeRef.once('value', function(snapshot) {
    processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
@@ -143,7 +127,11 @@ changeRef.on('value', function(snapshot) {
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
 });
-	*/
+
+};
+
+
+
 $( window ).resize(function() {
   processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
 });		
