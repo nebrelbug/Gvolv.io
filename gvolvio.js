@@ -115,6 +115,10 @@ todosusersRef.on('value', function(snapshot) {
    processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
+   processing.fill(255);
+   for (i = 0; i < 81; i++) { 
+   processing.line((-4000-xpos)+(processing.width/2)+100i,(-4000-ypos)+(processing.height/2),(-4000-xpos)+(processing.width/2)+100i,(4000-ypos)+(processing.height/2));
+   }
   snapshot.forEach(function(childSnapshot) {
     processing.stroke(255);
     processing.strokeWeight(3);
