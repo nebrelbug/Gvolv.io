@@ -120,8 +120,9 @@ changeRef.on('value', function(snapshot) {
     processing.strokeWeight(3);
     processing.fill(220, 226, 237);
     processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
-    processing.fill(255,0,0);
-    processing.text(childSnapshot.val().name, (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
+    processing.fill(0);
+    var charName = childSnapshot.val().name;
+    processing.text(charName.charAt(0), (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
     processing.fill(255);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
