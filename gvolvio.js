@@ -7,8 +7,9 @@ var xv = 0;
 var yv = 0;
 var xpos = 200;
 var ypos = 200;
-var userRef = firebase.database().ref('users/');
+var todosusersRef = firebase.database().ref('users/');
 var keys = [];
+var userRef;
 var sides = 5;
 var radius = 20;
 var fillColor = 255;
@@ -109,11 +110,8 @@ function movement () {
 processing.draw = function() {
 	movement();
 };
-
-
-//Draw Stuff!!!
 		
-	userRef.on('value', function(snapshot) {
+todosusersRef.on('value', function(snapshot) {
    processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
@@ -124,18 +122,16 @@ processing.draw = function() {
     processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
     processing.fill(0);
     var charName = childSnapshot.val().name;
-    if (charName !== undefined) {
     processing.text(charName.charAt(0), (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
-    }
     processing.fill(255);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
 });
-//End of Draw Stuff
-
+	
 $( window ).resize(function() {
   processing.size($(window).width()-20, $(window).height()-($("#signIn").height()+$("#signOut").height()+20));
-  userRef.once('value', function(snapshot) {
+	
+	todosusersRef.once('value', function(snapshot) {
    processing.background(175,175,175);
    processing.fill(0,0,0);
    processing.rect((-4000-xpos)+(processing.width/2), (-4000-ypos)+(processing.height/2),8000,8000);
@@ -146,14 +142,11 @@ $( window ).resize(function() {
     processing.ellipse((childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2), childSnapshot.val().radius, childSnapshot.val().radius)	  
     processing.fill(0);
     var charName = childSnapshot.val().name;
-    if (charName !== undefined) {
     processing.text(charName.charAt(0), (childSnapshot.val().xpos-xpos)+(processing.width/2), (childSnapshot.val().ypos-ypos)+(processing.height/2));
-    }
     processing.fill(255);
     processing.text("("+Math.round(xpos)+", "+Math.round(ypos)+")", 15, 15);
   });
 });
-
 });		
 
 $(document).keydown(function (e) {
